@@ -1,0 +1,17 @@
+<serviceGroup>
+<!-- 服务名称 -->
+<service name="myService" >
+    <description> 
+        Axis2与 Spring整合  
+    </description> 
+    <parameter name="ServiceObjectSupplier"><!-- 固定的不变 --> 
+            org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier 
+        </parameter> 
+    <!-- spring 容器实例化后的bean名称 -->
+    <parameter name="SpringBeanName">queryUserResource</parameter><!-- bean名字 --> 
+   <messageReceivers>
+        <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only" class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver"/>
+        <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out" class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+    </messageReceivers> 
+</service>
+</serviceGroup>
